@@ -6,10 +6,10 @@ import Layout  from '../components/layout';
 
 
 export default () => (
-    <Layout headerText="Home">
-        <Helmet title="Home" />
+    <Layout headerText="About Gatsby">
+        <Helmet title="About" />
         <article>
-            <p>This is home</p>
+            <p>This is not home but About.</p>
         </article>
     </Layout>
-)
+  )
