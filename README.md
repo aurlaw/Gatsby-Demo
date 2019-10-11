@@ -1,3 +1,7 @@
+# Gatsby Demo
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1e2585d2-de65-4177-b080-2b1176be4b97/deploy-status)](https://app.netlify.com/sites/tender-bartik-01563f/deploys)
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
