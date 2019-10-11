@@ -1,5 +1,7 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
+import {Helmet} from "react-helmet";
+import { kebabCase } from 'lodash';
 
 import Layout  from '../components/layout';
 
@@ -10,23 +12,43 @@ const PostTemplate = ({ data }) => {
     <Layout headerText={frontmatter.title}>
         <Helmet title={frontmatter.title} />
         <article>
-            <span>{frontmatter.date}</span>
+            <time dateTime={frontmatter.date}>{frontmatter.dateFormatted}</time>
             <div dangerouslySetInnerHTML={{ __html: html }} />
+            {frontmatter.tags ? (
+                  <div className="post-tags-container">
+                      <span>Tags:</span>
+                      <ul className="tagList">
+                          {frontmatter.tags.map(tag => (
+                              <li key={tag + `tag`}>
+                                  <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                              </li>
+                          ))}
+                      </ul>
+                  </div>        
+              ): null}            
         </article>
     </Layout>        
     );
   };
   
-  export default PostTemplate;
+export default PostTemplate;
 
-  export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+export const pageQuery = graphql`
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
+        date
+        dateFormatted:date(formatString: "MMMM DD, YYYY")
         title
+        tags
+        thumbnail {
+          childImageSharp {
+            fixed(width:200, height:200) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
       }
     }
   }

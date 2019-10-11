@@ -58,3 +58,20 @@ footer {
         font-style: italic;
     }
 }
+article {
+    padding: 0.25rem;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+}
+time {
+    font-style: italic;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.tags-container {
+    font-size: 0.9rem;
+    .tagList {
+        @include tag-list;
+    }
+}
