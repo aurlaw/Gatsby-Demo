@@ -10,6 +10,8 @@ const TagsPage = ({data}) => {
         <Layout headerText="Tags">
             <Helmet title="Tags" />
             <article>
+            <nav className="subnav">
+
                 <ul>
                     {allTags.map(tag => (
                         <li key={tag.fieldValue}>
@@ -19,6 +21,7 @@ const TagsPage = ({data}) => {
                         </li>
                     ))}
                 </ul>
+                </nav>
             </article>
         </Layout>
     );
@@ -39,4 +42,3 @@ export const pageQuery = graphql`
     }
 `;
 
-//sort: { order: DESC, fields: [frontmatter___tags.] }

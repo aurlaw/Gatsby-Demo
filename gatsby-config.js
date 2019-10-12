@@ -54,7 +54,19 @@ module.exports = {
                     `default` // Or the languages in your project (Project settings -> Localization)
           ]
       }      
-    }        
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Gatsby Demo`,
+        short_name: `Gatsby Demo`,
+        start_url: `/`,
+        background_color: `#FFF`,
+        theme_color: `#215717`,
+        display: `standalone`,
+        icon: `src/images/icons/icon.jpeg`,
+      }
+    },
+    `gatsby-plugin-offline`  
   ]
-
 }

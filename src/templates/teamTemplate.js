@@ -1,40 +1,38 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import {Helmet} from "react-helmet";
-// import { kebabCase } from 'lodash';
 
 import Layout  from '../components/layout';
 
 const TeamTemplate = ({ data }) => {
     const { kenticoCloudItemTeamMember } = data;
     const { elements } = kenticoCloudItemTeamMember;
+    const assets = elements.image.assets;
+    const image = assets.length !== 0 ? assets[0] : null;
     return (
-    <Layout headerText={elements.name.value}>
-        <Helmet title={elements.name.value} />
+    <Layout headerText={elements.name.text}>
+        <Helmet title={elements.name.text} />
         <article>
-         
+            <div className="Grid Grid--gutters Grid--1of3">
+                <div className="Grid-cell">
+                    {image ? (
+                        <figure>
+                            <img className="rounded" src={image.url} alt={image.description}/>
+                            <figcaption>{elements.title.text}</figcaption>
+                        </figure>
+
+                    ) : null }
+                </div>
+                <div className="Grid-cell pad-w-1"
+                dangerouslySetInnerHTML={{ __html: elements.bio.resolvedHtml }}
+                >
+                </div>
+            </div>
         </article>
     </Layout>        
     );
-
   };
-  /**
- <time dateTime={frontmatter.date}>{frontmatter.dateFormatted}</time>
-<div dangerouslySetInnerHTML={{ __html: html }} />
-{frontmatter.tags ? (
-<div className="post-tags-container">
-<span>Tags:</span>
-<ul className="tagList">
-{frontmatter.tags.map(tag => (
-<li key={tag + `tag`}>
-    <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-</li>
-))}
-</ul>
-</div>        
-): null}   
-   * 
-   */
+
 export default TeamTemplate;
 
 export const pageQuery = graphql`
@@ -42,13 +40,13 @@ query($slug:String!) {
   kenticoCloudItemTeamMember(elements: {url_pattern: {value: {eq: $slug}}}) {
 elements {
         bio {
-            value
+            resolvedHtml
         }
         name {
-            value
+            text
         }
         title {
-            value
+            text
         }
         url_pattern {
             value
@@ -63,5 +61,4 @@ elements {
     }
   }
 }
-
 `;

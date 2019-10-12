@@ -2,7 +2,7 @@
   "name": "gatsby-demo",
   "private": true,
   "description": "A simplified bare-bones starter for Gatsby",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -15,6 +15,8 @@
   "dependencies": {
     "gatsby": "^2.15.34",
     "gatsby-image": "^2.2.27",
+    "gatsby-plugin-manifest": "^2.2.21",
+    "gatsby-plugin-offline": "^3.0.14",
     "gatsby-plugin-react-helmet": "^3.1.11",
     "gatsby-plugin-sass": "^2.1.18",
     "gatsby-plugin-sharp": "^2.2.29",
