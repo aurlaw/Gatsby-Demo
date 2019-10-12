@@ -42,7 +42,19 @@ module.exports = {
           },
         ],          
       }
-    }    
+    },
+    {
+      resolve: `gatsby-source-kentico-cloud`,
+        options: {
+          deliveryClientConfig: {
+            projectId: process.env.KENTICO_PROJECT_ID // Fill in your Project ID
+          },
+          // Please note that with the Sample Project generated above, `en-US` is the default language for the project and this config. For a blank project, this needs to be `default`.
+          languageCodenames: [
+                    `default` // Or the languages in your project (Project settings -> Localization)
+          ]
+      }      
+    }        
   ]
 
 }

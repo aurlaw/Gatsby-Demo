@@ -13,6 +13,13 @@ exports.onCreateNode = ({node, actions, getNode}) => {
             value: slug
         });
     }
+    else if(node.internal.type === 'KenticoCloudItemTeamMember') {
+        createNodeField({
+            node,
+            name: `slug`,
+            value: node.elements.url_pattern.value,
+          })
+    }
 };
 
 exports.createPages = ({actions, graphql}) => {
@@ -20,6 +27,7 @@ exports.createPages = ({actions, graphql}) => {
 
     const postTemplate = path.resolve('src/templates/postTemplate.js');
     const tagTemplate = path.resolve('src/templates/tagsTemplate.js');
+    const teamTemplate = path.resolve('src/templates/teamTemplate.js');
 
     return graphql(`
         {
@@ -38,6 +46,15 @@ exports.createPages = ({actions, graphql}) => {
                     }
                 }
             }
+            allKenticoCloudItemTeamMember {
+                edges {
+                  node {
+                    fields {
+                        slug
+                    }                    
+                  }
+                }
+              }            
         }        
     `).then(result => {
         if(result.errors) {
@@ -69,5 +86,17 @@ exports.createPages = ({actions, graphql}) => {
                 context: {tag}
             });
         });
+
+        // kentico
+        const members = result.data.allKenticoCloudItemTeamMember.edges;
+        // create blogs
+        members.forEach(({node}) => {
+            createPage({
+                path: `/team/${node.fields.slug}`,
+                component: teamTemplate,
+                context: {slug: node.fields.slug},
+            });
+        });        
+
     });
 };
