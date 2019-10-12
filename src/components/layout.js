@@ -5,7 +5,6 @@ import Header from "./header";
 import Nav from "./nav";
 import Footer from "./footer";
 
-import '../sass/main.scss';
 
 export default (props ) => (
   <React.Fragment>
