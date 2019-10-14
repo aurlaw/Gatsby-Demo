@@ -9,7 +9,7 @@ export default () => (
     <Layout headerText="Home">
         <Helmet title="Home" />
         <article>
-            <p>This is home</p>
+            <p>Using Gatsby to use Markdown files as demo blog content and Kentico Cloud for demo team member content.</p>
         </article>
     </Layout>
 )
