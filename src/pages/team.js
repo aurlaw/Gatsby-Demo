@@ -11,7 +11,7 @@ const TeamPage = ({data}) => {
         <Layout headerText="Team">
             <Helmet title="Team" />
             <article>
-                <nav className="subnav">
+                <nav className="subnav text-center">
                 <ul>
                     {allTeam.map(team => (
                         <li key={team.node.id}>

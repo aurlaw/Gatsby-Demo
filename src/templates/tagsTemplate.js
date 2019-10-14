@@ -14,6 +14,7 @@ const Tags = ({ pageContext, data  }) => {
     <Layout headerText={tagHeader}>
         <Helmet title={tag}/>
         <article>
+        <nav className="subnav text-center">
             <ul>
                 {edges.map(({node}) => {
                     const {title, date, dateFormatted} = node.frontmatter;
@@ -28,6 +29,7 @@ const Tags = ({ pageContext, data  }) => {
                 })}
             </ul>
             <Link to="/tags">All tags</Link>
+        </nav>
         </article>
     </Layout>
   );

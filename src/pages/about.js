@@ -11,15 +11,17 @@ const AboutPage = (props) => {
         <Layout headerText="About Gatsby">
             <Helmet title="About" />
             <article>
-                <p>This is not home but About.</p>
-    
+                <p class="text-center">This is not home but About.</p>
+                <div  class="text-center">
                 <h3>Counter</h3>
-                    {props.counter}
-                    <button onClick={(e) => {
-                        e.preventDefault();
-                        console.log(props);
-                        props.incrementCounter();
-                    }}>Increment</button>
+                <div>{props.counter}</div>
+                <button type="button" className="btn btn-info"  onClick={(e) => {
+                    e.preventDefault();
+                    console.log(props);
+                    props.incrementCounter();
+                }}>Increment</button>
+
+                </div>
             </article>
         </Layout>
       );

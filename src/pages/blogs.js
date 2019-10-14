@@ -13,39 +13,37 @@ const BlogPage =  ({data}) => {
         <Helmet title="Blogs" />
         <article>
             <p>A list of Blogs</p>
-            <div className="post-list">
-                {posts.map(post => (
-                    <div key={post.node.id} className="post-list__item">
-                        <div className="post-list__thumbnail">
-                            <Link to={post.node.fields.slug}>
-                                <Img
-                                fixed={post.node.frontmatter.thumbnail.childImageSharp.fixed} 
-                                />
-                            </Link>
-                        </div>
-                        <div className="post-list__content">
-                            <h2>{post.node.frontmatter.title}</h2>
-                            {post.node.frontmatter.tags ? (
-                                <div className="tags-container">
-                                    <span>Tags:</span>
-                                    <ul className="tagList">
-                                        {post.node.frontmatter.tags.map(tag => (
-                                            <li key={tag + `tag`}>
-                                                <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>        
-                            ): null}
-                            <time dateTime={post.node.frontmatter.date}>{post.node.frontmatter.dateFormatted}</time>
-                            <div className="post-list__excerpt">
-                                <p>{post.node.excerpt}</p>
-                            </div>
-                            <Link to={post.node.fields.slug}>Read More</Link>
-                        </div>                            
+            {posts.map(post => (
+                <div key={post.node.id} className="row">
+                    <div className="col-lg-3">
+                        <Link to={post.node.fields.slug}>
+                            <Img
+                            fixed={post.node.frontmatter.thumbnail.childImageSharp.fixed} 
+                            />
+                        </Link>
                     </div>
-                ))}
-            </div>
+                    <div className="col-lg-9">
+                        <h2>{post.node.frontmatter.title}</h2>
+                        {post.node.frontmatter.tags ? (
+                            <div className="tags-container">
+                                <span>Tags:</span>
+                                <ul className="tagList">
+                                    {post.node.frontmatter.tags.map(tag => (
+                                        <li key={tag + `tag`}>
+                                            <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>        
+                        ): null}
+                        <time dateTime={post.node.frontmatter.date}>{post.node.frontmatter.dateFormatted}</time>
+                        <div className="post-list__excerpt">
+                            <p>{post.node.excerpt}</p>
+                        </div>
+                        <Link to={post.node.fields.slug}>Read More</Link>
+                    </div>                            
+                </div>
+            ))}
         </article>
     </Layout>
 

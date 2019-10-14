@@ -10,7 +10,7 @@ const TagsPage = ({data}) => {
         <Layout headerText="Tags">
             <Helmet title="Tags" />
             <article>
-            <nav className="subnav">
+            <nav className="subnav text-center">
 
                 <ul>
                     {allTags.map(tag => (

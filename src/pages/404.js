@@ -6,10 +6,10 @@ import Layout  from '../components/layout';
 
 
 export default () => (
-    <Layout headerText="Home">
-        <Helmet title="Home" />
+    <Layout headerText="Not Found">
+        <Helmet title="Not Found" />
         <article>
-            <p className="text-center">Using Gatsby to use Markdown files as demo blog content and Kentico Cloud for demo team member content.</p>
+            <p className="text-center">Page not found.</p>
         </article>
     </Layout>
 )
