@@ -27,7 +27,7 @@ export default (props) => (
     //     </div>
     // </nav>
     <Navbar collapseOnSelect expand="lg" bg="dark" >
-        <Navbar.Brand><h1>Gatsby Demo</h1></Navbar.Brand>
+        <Navbar.Brand><h1><Link to="/">Gatsby Demo</Link></h1></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto" >

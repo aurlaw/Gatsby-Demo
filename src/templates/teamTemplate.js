@@ -15,10 +15,10 @@ const TeamTemplate = ({ data }) => {
         <article>
             <div className="Grid Grid--gutters Grid--1of3">
                 <div className="Grid-cell">
-                    {image ? (
+                    {image ? ( 
                         <figure>
-                            <img className="rounded" src={image.url} alt={image.description}/>
-                            <figcaption>{elements.title.text}</figcaption>
+                            <img className="round-circle" src={image.url} alt={image.description}/>
+                            <figcaption>{elements.title.text} <span>aka {elements.code_name.text.toLowerCase()}</span></figcaption>
                         </figure>
 
                     ) : null }
@@ -48,6 +48,9 @@ elements {
         title {
             text
         }
+        code_name {
+            text
+        }        
         url_pattern {
             value
         }

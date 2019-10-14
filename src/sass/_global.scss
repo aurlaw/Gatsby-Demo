@@ -1,14 +1,24 @@
 body {
     background-color: #eee;
     font-family: Arial, Helvetica, sans-serif;
-    // @media (min-width: 992px) {
-    //     padding: 1em;
-    // }
 }
-
+h1 {
+    font-size: 1.5rem;
+}
+h2 {
+    font-size: 1.25rem;
+}
+h3 {
+    font-size: 1.15rem;
+}
+h4, h5 {
+    font-size: 1rem;
+}
+h6 {
+    font-size: 0.9rem;
+}
 .container {
     @include base;
-
 }
 header {
     .bg-dark
@@ -16,10 +26,13 @@ header {
         background: rgb(1,18,7);
         background: linear-gradient(90deg, rgba(1,18,7,1) 0%, rgba(32,102,55,1) 35%, rgba(109,166,128,1) 100%);
         h1 {
-            color: #acd2b9;
-            text-shadow: 2px 2px 4px #000000;
             margin: 0;
             padding: 1rem;
+            a {
+                color: #acd2b9;
+                text-shadow: 2px 2px 4px #000000;
+                text-decoration: none !important;
+            }
         }
         .navbar-nav {
             text-align: left;
@@ -51,6 +64,7 @@ header {
 main {
     // @include base;
     text-align: left;
+    margin-top: 1rem;
 }
 a {
     color: #206637;   
@@ -98,7 +112,7 @@ time {
     padding-top: 1rem;
 }
 
-.rounded {
+.round-circle {
 
     width:150px;
     height:150px;
@@ -108,16 +122,24 @@ time {
     }
     object-fit:cover;    
     border-radius: 50%;
-    box-shadow: 5px 5px 13px -4px rgba(0,0,0,0.75);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 3px #206637;
+    // box-shadow: 5px 5px 13px -4px rgba(0,0,0,0.75);
 }
 
 figure {
     text-align: center;
     figcaption {
         margin: 1em auto;
-        color: #666;
+        color: #222;
         font-size: 0.75rem;
         text-align: center;
+
+        span {
+            font-variant: small-caps;
+            font-style: italic;
+            color: #999;
+        }
     }
 }
 
