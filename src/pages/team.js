@@ -11,12 +11,12 @@ const TeamPage = ({data}) => {
         <Layout headerText="Team">
             <Helmet title="Team" />
             <article>
-                <nav className="subnav">
+                <nav className="subnav text-center">
                 <ul>
                     {allTeam.map(team => (
                         <li key={team.node.id}>
                             <Link to={`/team/${team.node.fields.slug}`}>
-                                {team.node.elements.name.text}
+                                {team.node.elements.name.text} <span className="small">({team.node.elements.code_name.text})</span>
                             </Link>
                         </li>    
                     ))}
@@ -37,6 +37,9 @@ query {
             node {
                 elements {
                     name {
+                        text
+                    }
+                    code_name {
                         text
                     }
                 }

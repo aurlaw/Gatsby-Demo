@@ -11,7 +11,7 @@ export default (props ) => (
     <Helmet titleTemplate={`%s | Gatsby Demo`}>
       <meta charSet="utf-8" />
     </Helmet>
-    <div className="container">
+    <div className="container-fluid">
       <Header headerText={props.headerText}>
         <Nav />
       </Header>
